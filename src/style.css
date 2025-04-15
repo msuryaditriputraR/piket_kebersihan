@@ -1,0 +1,25 @@
+/* ==================== GOOGLE FONTS ===================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/* ==================== BASE & RESET ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  padding: 2.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+#kelas {
+  text-shadow: 0px 1px 1px rgb(0 0 0 / 0.1), 0px 1px 2px rgb(0 0 0 / 0.1),
+    0px 2px 4px rgb(0 0 0 / 0.1);
+  color: rgb(255, 0, 0);
+}
