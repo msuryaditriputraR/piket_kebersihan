@@ -18,7 +18,9 @@ h1 {
   text-transform: uppercase;
 }
 
-button {
+button,
+select {
+  border: none;
   outline: none;
 }
 
@@ -64,7 +66,91 @@ th {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
   font-size: 2rem;
   cursor: pointer;
+}
+
+/* BTN FORM */
+.btn__form {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: white;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.btn__form-add {
+  background-color: oklch(58.5% 0.233 277.117);
+}
+
+/* BTN CLOSE */
+.btn__close {
+  color: white;
+  width: 30px;
+  height: 30px;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: oklch(63.7% 0.237 25.331);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* ==================== MODAL ===================== */
+.modal[open] {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: initial;
+  max-height: initial;
+  border: none;
+}
+
+.modal:-internal-dialog-in-top-layer::backdrop {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.modal__content {
+  position: relative;
+  max-width: 400px;
+  width: 50vw;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.modal__hr {
+  margin-block: 0.5rem;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal__select,
+.modal__input {
+  padding: 0.8rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid oklch(86.9% 0.022 252.894);
 }
