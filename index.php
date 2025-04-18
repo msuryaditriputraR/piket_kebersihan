@@ -51,24 +51,26 @@
   <dialog id="modal_add" class="modal">
     <div class="modal__content">
       <h2>Tambah Data</h2>
-      <hr>
-      <form action="" method="post">
-        <select name="day">
+      <hr class="modal__hr">
+      <form action="" method="post" class="modal__form">
+        <select name="day" class="modal__select">
           <option value="" selected hidden>Hari</option>
 
           <?php foreach (["Senin", "Selasa", "Rabu", "Kamis", "Jumat"] as $index => $day): ?>
             <option value="<?= $index; ?>"><?= $day; ?></option>
           <?php endforeach ?>
         </select>
-        <input type="text" name="name" placeholder="Nama Lengkap">
+        <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input">
+        <button type="submit" class="btn__form btn__form-add">Tambah</button>
       </form>
+
+
+      <!-- close -->
+      <form method="dialog">
+        <button class="btn__close"><i class="ri-close-fill"></i></button>
+      </form>
+
     </div>
-
-
-    <!-- close -->
-    <form method="dialog">
-      <button><i class="ri-close-fill" class="btn__close"></i></button>
-    </form>
   </dialog>
 
   <!--- ==================== JAVASCRIPT ===================== -->
