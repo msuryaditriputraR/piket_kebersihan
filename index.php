@@ -32,11 +32,18 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td>Irfan</td>
-        <td>Irfan</td>
-        <td>Irfan</td>
-        <td>Irfan</td>
-        <td>Irfan</td>
+
+
+        <td class="p-relative">Irfan
+          <div class="table__btns">
+            <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+              <i class="ri-pencil-fill"></i>
+            </button>
+            <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+              <i class="ri-delete-bin-fill"></i>
+            </a>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -62,6 +69,32 @@
         </select>
         <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input">
         <button type="submit" class="btn__form btn__form-add">Tambah</button>
+      </form>
+
+
+      <!-- close -->
+      <form method="dialog">
+        <button class="btn__close"><i class="ri-close-fill"></i></button>
+      </form>
+
+    </div>
+  </dialog>
+
+  <!-- EDIT -->
+  <dialog id="modal_edit" class="modal">
+    <div class="modal__content">
+      <h2>Edit Data</h2>
+      <hr class="modal__hr">
+      <form action="" method="post" class="modal__form">
+        <select name="day" class="modal__select">
+          <option value="" selected hidden>Hari</option>
+
+          <?php foreach (["Senin", "Selasa", "Rabu", "Kamis", "Jumat"] as $index => $day): ?>
+            <option value="<?= $index; ?>"><?= $day; ?></option>
+          <?php endforeach ?>
+        </select>
+        <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input">
+        <button type="submit" class="btn__form btn__form-edit">Edit</button>
       </form>
 
 

@@ -24,6 +24,10 @@ select {
   outline: none;
 }
 
+.p-relative {
+  position: relative;
+}
+
 #kelas {
   text-shadow: 0px 1px 1px rgb(0 0 0 / 0.1), 0px 1px 2px rgb(0 0 0 / 0.1),
     0px 2px 4px rgb(0 0 0 / 0.1);
@@ -47,6 +51,45 @@ th {
 
 th {
   text-transform: uppercase;
+}
+
+.table__btns {
+  display: flex;
+  gap: 0.25rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.table__btn {
+  width: 25px;
+  height: 25px;
+  border-radius: 0.25rem;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(50%);
+  transition: opacity 0.3s, transform 0.2s ease-in-out;
+}
+
+td.p-relative:hover .table__btn {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: initial;
+}
+
+.table__btn-edit {
+  background-color: oklch(82.8% 0.189 84.429);
+}
+
+.table__btn-delete {
+  background-color: oklch(64.5% 0.246 16.439);
 }
 
 /* ==================== BUTTON ===================== */
@@ -88,6 +131,10 @@ th {
 
 .btn__form-add {
   background-color: oklch(58.5% 0.233 277.117);
+}
+
+.btn__form-edit {
+  background-color: oklch(82.8% 0.189 84.429);
 }
 
 /* BTN CLOSE */
