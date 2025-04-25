@@ -51,7 +51,7 @@ require_once("src/crud/read.php");
                   <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
-                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                  <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
                     <i class="ri-delete-bin-fill"></i>
                   </a>
                 </div>
@@ -66,7 +66,7 @@ require_once("src/crud/read.php");
                   <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
-                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                  <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
                     <i class="ri-delete-bin-fill"></i>
                   </a>
                 </div>
@@ -81,7 +81,7 @@ require_once("src/crud/read.php");
                   <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
-                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                  <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
                     <i class="ri-delete-bin-fill"></i>
                   </a>
                 </div>
@@ -96,7 +96,7 @@ require_once("src/crud/read.php");
                   <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
-                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                  <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
                     <i class="ri-delete-bin-fill"></i>
                   </a>
                 </div>
@@ -111,7 +111,7 @@ require_once("src/crud/read.php");
                   <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
-                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                  <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
                     <i class="ri-delete-bin-fill"></i>
                   </a>
                 </div>
