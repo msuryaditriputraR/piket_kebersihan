@@ -24,6 +24,16 @@ select {
   outline: none;
 }
 
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+  text-transform: capitalize;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
 .p-relative {
   position: relative;
 }
@@ -78,7 +88,7 @@ th {
   transition: opacity 0.3s, transform 0.2s ease-in-out;
 }
 
-td.p-relative:hover .table__btn {
+li.p-relative:hover .table__btn {
   opacity: 1;
   transform: translateY(0);
   pointer-events: initial;

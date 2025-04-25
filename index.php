@@ -1,3 +1,8 @@
+<?php
+include_once "src/env.php";
+require_once("src/crud/read.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +26,6 @@
   <table>
     <thead>
       <tr>
-        <th>No</th>
         <th>Senin</th>
         <th>Selasa</th>
         <th>Rabu</th>
@@ -30,21 +34,92 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
+      <?php
+      if (gettype($piket) !== "array"):
+      ?>
+        <tr>
+          <td colspan="5"><?= $piket; ?></td>
+        </tr>
 
-
-        <td class="p-relative">Irfan
-          <div class="table__btns">
-            <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
-              <i class="ri-pencil-fill"></i>
-            </button>
-            <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
-              <i class="ri-delete-bin-fill"></i>
-            </a>
-          </div>
-        </td>
-      </tr>
+      <?php else : ?>
+        <tr>
+          <td>
+            <?php foreach ($piket["senin"] as $s): ?>
+              <li class=" p-relative">
+                <?= $s['nama'] ?>
+                <div class=" table__btns">
+                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                    <i class="ri-pencil-fill"></i>
+                  </button>
+                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                    <i class="ri-delete-bin-fill"></i>
+                  </a>
+                </div>
+              </li>
+            <?php endforeach ?>
+          </td>
+          <td>
+            <?php foreach ($piket["selasa"] as $s): ?>
+              <li class=" p-relative">
+                <?= $s['nama'] ?>
+                <div class=" table__btns">
+                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                    <i class="ri-pencil-fill"></i>
+                  </button>
+                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                    <i class="ri-delete-bin-fill"></i>
+                  </a>
+                </div>
+              </li>
+            <?php endforeach ?>
+          </td>
+          <td>
+            <?php foreach ($piket["rabu"] as $s): ?>
+              <li class=" p-relative">
+                <?= $s['nama'] ?>
+                <div class=" table__btns">
+                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                    <i class="ri-pencil-fill"></i>
+                  </button>
+                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                    <i class="ri-delete-bin-fill"></i>
+                  </a>
+                </div>
+              </li>
+            <?php endforeach ?>
+          </td>
+          <td>
+            <?php foreach ($piket["kamis"] as $s): ?>
+              <li class=" p-relative">
+                <?= $s['nama'] ?>
+                <div class=" table__btns">
+                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                    <i class="ri-pencil-fill"></i>
+                  </button>
+                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                    <i class="ri-delete-bin-fill"></i>
+                  </a>
+                </div>
+              </li>
+            <?php endforeach ?>
+          </td>
+          <td>
+            <?php foreach ($piket["jumat"] as $s): ?>
+              <li class=" p-relative">
+                <?= $s['nama'] ?>
+                <div class=" table__btns">
+                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                    <i class="ri-pencil-fill"></i>
+                  </button>
+                  <a href="#" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
+                    <i class="ri-delete-bin-fill"></i>
+                  </a>
+                </div>
+              </li>
+            <?php endforeach ?>
+          </td>
+        </tr>
+      <?php endif ?>
     </tbody>
   </table>
 
@@ -59,15 +134,15 @@
     <div class="modal__content">
       <h2>Tambah Data</h2>
       <hr class="modal__hr">
-      <form action="" method="post" class="modal__form">
-        <select name="day" class="modal__select">
+      <form action="<?= $env["BASE_URL"] . "src/crud/create.php"; ?>" method="post" class="modal__form">
+        <select name="day" class="modal__select" required>
           <option value="" selected hidden>Hari</option>
 
           <?php foreach (["Senin", "Selasa", "Rabu", "Kamis", "Jumat"] as $index => $day): ?>
             <option value="<?= $index; ?>"><?= $day; ?></option>
           <?php endforeach ?>
         </select>
-        <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input">
+        <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input" required>
         <button type="submit" class="btn__form btn__form-add">Tambah</button>
       </form>
 
@@ -86,14 +161,14 @@
       <h2>Edit Data</h2>
       <hr class="modal__hr">
       <form action="" method="post" class="modal__form">
-        <select name="day" class="modal__select">
+        <select name="day" class="modal__select" required>
           <option value="" selected hidden>Hari</option>
 
           <?php foreach (["Senin", "Selasa", "Rabu", "Kamis", "Jumat"] as $index => $day): ?>
             <option value="<?= $index; ?>"><?= $day; ?></option>
           <?php endforeach ?>
         </select>
-        <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input">
+        <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input" required>
         <button type="submit" class="btn__form btn__form-edit">Edit</button>
       </form>
 
