@@ -11,3 +11,18 @@ function animateRandomColor(id) {
 }
 
 setInterval(() => animateRandomColor("kelas"), 1000);
+
+// MODAL EDIT
+
+const btnEdits = document.querySelectorAll(".table__btn-edit");
+const modalEdit = document.getElementById("modal_edit");
+
+btnEdits.forEach((btnEdit) =>
+  btnEdit.addEventListener("click", function () {
+    modalEdit.showModal();
+
+    document.getElementById("idEdit").value = this.dataset.id;
+    document.getElementById("dayEdit").value = this.dataset.day;
+    document.getElementById("nameEdit").value = this.dataset.name;
+  })
+);

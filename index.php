@@ -48,7 +48,7 @@ require_once("src/crud/read.php");
               <li class=" p-relative">
                 <?= $s['nama'] ?>
                 <div class=" table__btns">
-                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                  <button class="table__btn table__btn-edit" data-id="<?= $s['id']; ?>" data-name="<?= $s['nama']; ?>" data-day="<?= $s['hari']; ?>" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
                   <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
@@ -63,7 +63,7 @@ require_once("src/crud/read.php");
               <li class=" p-relative">
                 <?= $s['nama'] ?>
                 <div class=" table__btns">
-                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                  <button class="table__btn table__btn-edit" data-id="<?= $s['id']; ?>" data-name="<?= $s['nama']; ?>" data-day="<?= $s['hari']; ?>" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
                   <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
@@ -78,7 +78,7 @@ require_once("src/crud/read.php");
               <li class=" p-relative">
                 <?= $s['nama'] ?>
                 <div class=" table__btns">
-                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                  <button class="table__btn table__btn-edit" data-id="<?= $s['id']; ?>" data-name="<?= $s['nama']; ?>" data-day="<?= $s['hari']; ?>" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
                   <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
@@ -93,7 +93,7 @@ require_once("src/crud/read.php");
               <li class=" p-relative">
                 <?= $s['nama'] ?>
                 <div class=" table__btns">
-                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                  <button class="table__btn table__btn-edit" data-id="<?= $s['id']; ?>" data-name="<?= $s['nama']; ?>" data-day="<?= $s['hari']; ?>" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
                   <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
@@ -108,7 +108,7 @@ require_once("src/crud/read.php");
               <li class=" p-relative">
                 <?= $s['nama'] ?>
                 <div class=" table__btns">
-                  <button class="table__btn table__btn-edit" onclick="modal_edit.showModal()" title="Edit Data">
+                  <button class="table__btn table__btn-edit" data-id="<?= $s['id']; ?>" data-name="<?= $s['nama']; ?>" data-day="<?= $s['hari']; ?>" title="Edit Data">
                     <i class="ri-pencil-fill"></i>
                   </button>
                   <a href="<?= $env["BASE_URL"] . "src/crud/delete.php?id=" . $s['id'] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')" class="table__btn table__btn-delete" title="Delete Data">
@@ -160,15 +160,16 @@ require_once("src/crud/read.php");
     <div class="modal__content">
       <h2>Edit Data</h2>
       <hr class="modal__hr">
-      <form action="" method="post" class="modal__form">
-        <select name="day" class="modal__select" required>
+      <form action="<?= $env["BASE_URL"] . "src/crud/update.php" ?>" method="post" class="modal__form">
+        <input type="hidden" name="id" id="idEdit">
+        <select name="day" class="modal__select" required id="dayEdit">
           <option value="" selected hidden>Hari</option>
 
           <?php foreach (["Senin", "Selasa", "Rabu", "Kamis", "Jumat"] as $index => $day): ?>
             <option value="<?= $index; ?>"><?= $day; ?></option>
           <?php endforeach ?>
         </select>
-        <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input" required>
+        <input type="text" name="name" placeholder="Nama Lengkap" class="modal__input" id="nameEdit" required>
         <button type="submit" class="btn__form btn__form-edit">Edit</button>
       </form>
 
